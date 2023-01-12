@@ -78,6 +78,18 @@ class Customer {
       );
     }
   }
+
+  /** combine name data to return a full name */
+
+  fullName() {
+    if (this.firstName && this.lastName) {
+      return `${this.firstName} ${this.lastName}`;
+    } else if (this.firstName) {
+      return this.firstName;
+    } else {
+      return this.lastName;
+    }
+  }
 }
 
 module.exports = Customer;
