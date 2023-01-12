@@ -35,8 +35,11 @@ class Reservation {
          WHERE customer_id = $1`,
         [customerId]
     );
-
-    return results.rows.map(row => new Reservation(row));
+    if (results.rows.length === 0) {
+      return null;
+    } else {
+      return results.rows.map(row => new Reservation(row));
+    }
   }
 }
 
